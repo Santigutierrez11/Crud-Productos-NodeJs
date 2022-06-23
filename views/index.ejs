@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Productos</title>
+</head>
+<body>
+    <div class="text-center" style="font-family: bootstrap; margin-top: 40px; margin-bottom: 30px;">
+        <h1>Productos</h1>
+    </div>
+    <div class="container">
+        <a href="/add" class="btn btn-success">Agregar</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><b>ID</b></td>
+                    <td><b>NOMBRE</b></td>
+                    <td><b>CATEGORIA</b></td>
+                    <td><b>DESCRICION</b></td>
+                    <td><b>DISPONIBLE</b></td>
+                    <td><b>PRECIO</b></td>
+                    <td><b>ACCIONES</b></td>
+                </tr>
+            </thead>
+            <tbody>
+            <% results.forEach((producto) => { %>
+                <tr>
+                    <td><b><%= producto.id %></b></td>
+                    <td><%= producto.nombre %></td>
+                    <td><%= producto.categoria %></td>
+                    <td><%= producto.descripcion %></td>
+                    <td><%= producto.disponible %></td>
+                    <td><%= producto.precio %></td>
+                    <td>
+                        <a href="/edit/<%= producto.id %>" class="btn btn-warning">Editar</a>
+                        <a href="/eliminar/<%= producto.id %>" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
